@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnakeGame</title>
+    <link rel="stylesheet" href = './style.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="./game.js" defer type="module"></script>
+</head>
+<body>
+    <div class='bg'>
+        <div class="spinner-grow  position-absolute top-50 start-0" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <ul id="dash_board" class="list-group position-absolute top-0 start-0">
+            <li class="list-group-item active" aria-current="true">狀態Status</li>
+            <li id="name" class="list-group-item">名字Name : </li>
+            <li id="score" class="list-group-item">得分Score : </li>
+            <li id="time" class="list-group-item">時間Time : </li>
+        </ul>
+        <div id = 'game_board'></div>
+    </div>
+    
+      
+</body>
+</html>

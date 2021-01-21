@@ -22,6 +22,10 @@ window.addEventListener("keydown", e =>{
     }
 })
 
+export function is_moved(){
+    return direction.x!=0||direction.y!=0
+}
+
 export function get_direction(){
     return direction
 }

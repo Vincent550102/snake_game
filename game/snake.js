@@ -1,5 +1,5 @@
 import {get_direction} from "./listener.js"
-export const SNAKE_SPEED = 5
+export const SNAKE_SPEED = 10
 let new_part = 0
 const snake_body = [{x:11,y:11}]
 
@@ -11,7 +11,7 @@ export function update() {
     const director = get_direction()
     snake_body[0].x += director.x
     snake_body[0].y += director.y
-    console.log('upd_snake')
+    // console.log('upd_snake')
 }
 
 export function draw(game_board) {
@@ -22,7 +22,7 @@ export function draw(game_board) {
         snake_element.classList.add('snake')
         game_board.appendChild(snake_element)
     })
-    console.log('draw_snake')
+    // console.log('draw_snake')
 }
 
 export function expend_snake(val) {
