@@ -8,8 +8,10 @@ let userName
 let score = 0
 let time
 let waiting_time
-const game_board = document.getElementById('game_board')
-const dash_board = document.getElementById('dash_board')
+
+
+const game_board = $("#game_board")
+const dash_board = $("#dash_board")
 
 function main(currentTime) {
     if(islost){
@@ -38,7 +40,7 @@ function update(currentTime) {
 }
 
 function draw() {
-    game_board.innerHTML = ""
+    game_board.text("")
     draw_dash(dash_board)
     draw_snake(game_board)
     draw_food(game_board)
@@ -47,9 +49,13 @@ function draw() {
 function draw_dash(ele) {
     let push_in_thing = [userName,score,time]
     let origin = ["名字(Name) : ","得分(Score) : ","時間(Time) : "]
-    for(let i = 0; i<3; i++){
-        ele.children[i+1].innerHTML = origin[i] + push_in_thing[i]
-    }
+    ele.children().each(function(idx){
+        if(!idx) return
+        $(this).text(origin[idx-1]+push_in_thing[idx-1])
+    })
+    // for(let i = 0; i<3; i++){
+    //     ele.children[i+1].innerHTML = origin[i] + push_in_thing[i]
+    // }
 }
 
 function update_dash(currentTime) {

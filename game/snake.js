@@ -1,5 +1,5 @@
 import {get_direction} from "./listener.js"
-export const SNAKE_SPEED = 10
+export const SNAKE_SPEED = 6
 let new_part = 0
 const snake_body = [{x:11,y:11}]
 
@@ -20,7 +20,7 @@ export function draw(game_board) {
         snake_element.style.gridRowStart = part.y
         snake_element.style.gridColumnStart = part.x
         snake_element.classList.add('snake')
-        game_board.appendChild(snake_element)
+        game_board.append(snake_element)
     })
     // console.log('draw_snake')
 }
@@ -32,7 +32,6 @@ export function expend_snake(val) {
 
 export function onsnake(pos,ign) {
     return snake_body.some((part,idx) => {
-        // console.log(ign&&!idx)
         if(ign&&!idx)return false
         return is_pos_equal(part,pos)
     })

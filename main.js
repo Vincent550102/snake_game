@@ -1,8 +1,8 @@
 let userName
 
-function clickStart(){
-    userName = document.getElementById('unameinput').value
-    window.location = './game/game.html?username='+userName
-    
-    // console.log(userName)
-}
+$(document).ready(function () {
+    $("#unamesubmit").click(function () { 
+        userName =  $("#unameinput").val()
+        window.location = './game/game.html?username='+userName
+    });
+});

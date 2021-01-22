@@ -19,7 +19,7 @@ export function draw(game_board) {
     food_element.style.gridRowStart = food_body.y
     food_element.style.gridColumnStart = food_body.x
     food_element.classList.add('food')
-    game_board.appendChild(food_element)
+    game_board.append(food_element)
     // console.log('draw_food')
 }
 
