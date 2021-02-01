@@ -28,7 +28,6 @@ def CHK_postinput():
         "score":87 or null
     }
     '''
-    #若資料庫內有此人資料則回傳那個資料，否則回傳"already":false
     return jsonify(db_mess)
 
 @app.route("/InsertData", methods = ["POST"])

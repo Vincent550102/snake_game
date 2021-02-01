@@ -7,7 +7,6 @@ class DataBase():
         self.db = client["snake_game"]
         self.db_userdatas = self.db['userdata']
     def insert_data(self,obj):
-        print(type(self.db_userdatas.find_one({'uid': obj['uid']})))
         status_mess = ""
         if self.db_userdatas.find_one({'uid': obj['uid']}):
             self.db_userdatas.update_one({"uid":obj['uid']},{
@@ -28,7 +27,6 @@ class DataBase():
 
     def find_userdata(self,uid):
         return_mess = dict()
-        print('d')
         if self.db_userdatas.find_one({'uid': uid}):
             udata = self.db_userdatas.find_one({'uid': uid})
             return_mess = {
