@@ -29,7 +29,6 @@ export function expend_snake(val) {
     new_part += val
 }
 
-
 export function onsnake(pos,ign) {
     return snake_body.some((part,idx) => {
         if(ign&&!idx)return false
