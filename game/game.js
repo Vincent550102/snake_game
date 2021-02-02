@@ -2,6 +2,7 @@ import { update as update_snake, draw as draw_snake, SNAKE_SPEED, get_head_pos, 
 import { update as update_food, draw as draw_food, get_is_eaten} from "./food.js"
 import { vaild } from "./grid.js"
 import { is_moved } from "./listener.js"
+import { postData } from "../httpAction.js"
 let prevTime = 0
 let islost = false
 let userName
@@ -9,15 +10,12 @@ let score = 0
 let time
 let waiting_time
 
-
 const game_board = $("#game_board")
 const dash_board = $("#dash_board")
 
 function main(currentTime) {
     if(islost){
-        if(confirm('lost')){
-            window.location = '../'
-        }
+        lost_thing();
         return
     }
     window.requestAnimationFrame(main)
@@ -31,6 +29,52 @@ function main(currentTime) {
 // main()
 window.requestAnimationFrame(main)
 
+function lost_thing(){
+    $('#endCard').css("visibility","visible")
+    var $loading = '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>'
+    $('#statusBoard').append($loading)
+    const url = "https://snake-game-backend.herokuapp.com/CheckData"
+    const data = {
+        "uid":userName
+    }
+
+    postData(url,data)
+    .then(data => {
+        const udata = data
+        var status_mess = "您 " + userName + " 達到分數 " + String(score) + " 所花費的時間是 " + String(time)+"\n";
+        console.log(udata)
+        if(udata.already) {
+            if(score>udata.score||(score==udata.score && time<udata.time)) {
+                status_mess+="恭喜您這次的成績大於歷史上的成績\n\n按下一步為您更新!";
+                insert_data_toDB({
+                    "uid":userName,
+                    "time":time,
+                    "score":score
+                });
+            } else {
+                status_mess+="這次的成績好像沒有歷史上的成績好\n\n按下一步再接再勵qq";
+            }
+        } else {
+            status_mess+="你還沒出現在排行榜上歐\n\n按下一步為您新增~";
+            insert_data_toDB({
+                "uid":userName,
+                "time":time,
+                "score":score
+            });
+        }
+        $("#statusBoard").text(status_mess)
+    })
+    .catch(error => console.error(error))
+}
+
+function insert_data_toDB(data){
+    const url = 'https://snake-game-backend.herokuapp.com/InsertData';
+    postData(url, data)
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error(error))
+}
 
 function update(currentTime) {
     update_dash(currentTime)
