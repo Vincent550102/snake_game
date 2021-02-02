@@ -18,8 +18,8 @@
     width: 100vmin;
     display: grid;
     border:.25vmin solid black;
-    grid-template-columns: repeat(21,1fr);
-    grid-template-rows: repeat(21,1fr);
+    grid-template-columns: repeat(31,1fr);
+    grid-template-rows: repeat(31,1fr);
 }
 
 #dash_board {
