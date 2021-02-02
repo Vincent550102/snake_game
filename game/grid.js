@@ -1,5 +1,5 @@
 
-const grid_SIZE = 21
+const grid_SIZE = 31
 
 export function rand_grid_pos() {
     return {
