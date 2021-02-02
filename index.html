@@ -10,44 +10,69 @@
 
     <style>
         *{
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: "Ubuntu", "Helvetica", "微軟雅黑", "Microsoft YaHei", "Segoe UI Semibold", "Segoe UI", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
         }
         .ball {
             position: absolute;
             border-radius: 100%;
             opacity: 0.7;
         }
+        .footer{
+            position: absolute;
+            bottom: 0;
+            left: 44%;
+            color:gray;
+            font-size: 15px;
+        }
+        .icon{
+            color:gray;
+            text-decoration:none;
+        }
+        .titledress{
+            width:300px;
+            height: 200px;
+            position:absolute;
+            top:30%;
+            left:50%;
+            /* margin-top: 1px; */
+            margin-left: -140px;
+            /* text-align:center */
+        }
         #btnPlace{
             width:300px;
             height: 200px;
             position:absolute;
-            top:50%;
+            top:70%;
             left:50%;
             margin-top: -50px;
-            margin-left: -200px;
-            /* display: flex; */
+            margin-left: -140px;
+            text-align:center
         }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ed5942c47b.js" crossorigin="anonymous"></script>
+
     <script src="./main.js" defer type="text/javascript"></script>
     <script src="./bg.js" defer type="text/javascript"></script>
+    
 </head>
 <body class="back-row-toggle splat-toggle">
     <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">主頁Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./scoreboard/scoreboard.html">記分板ScoreBoard</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">幫忙Help</a>
-        </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">主頁Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="./scoreboard/scoreboard.html">記分板ScoreBoard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://zh.wikipedia.org/zh-tw/%E8%B4%AA%E9%A3%9F%E8%9B%87">幫忙Help</a>
+    </li>
     </ul>
-    <h1 class = 'sticky-md-top'>
+    <h1 class = 'titledress'>
         SNAKE GAME
     </h1>
     <form id="btnPlace" method="dialog">
+        
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id = 'unameinput'>
@@ -55,5 +80,13 @@
         <button type="submit" class="btn btn-primary btn-lg" id="unamesubmit">開始遊戲</button>
         <button type="reset" class="btn btn-secondary btn-lg">重設</button>
     </form>
+
+    <footer class="footer">
+        Vincent550102&nbsp;&nbsp;
+        <a class="icon" target="_blank" rel="noopener" href="https://github.com/Vincent550102/snake_game">
+            <i class="fab fa-github"></i>
+        </a>
+        &nbsp;&nbsp; repo
+    </footer>
 </body>
 </html>

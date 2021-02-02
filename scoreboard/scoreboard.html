@@ -14,7 +14,19 @@
             border-radius: 100%;
             opacity: 0.7;
         }
+        .icon{
+            color:gray;
+            text-decoration:none;
+        }
+        .footer{
+            position: relative;
+            bottom: 0;
+            left: 44%;
+            color:gray;
+            font-size: 15px;
+        }
     </style>
+    <script src="https://kit.fontawesome.com/ed5942c47b.js" crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="./scoreboard.js" defer type="module"></script>
     <script src="../bg.js" defer type="text/javascript"></script>
@@ -28,7 +40,7 @@
             <a class="nav-link active" href="#">記分板ScoreBoard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">幫忙Help</a>
+            <a class="nav-link" href="https://zh.wikipedia.org/zh-tw/%E8%B4%AA%E9%A3%9F%E8%9B%87">幫忙Help</a>
         </li>
     </ul>
     <table id="scoreboard"class="table table-striped table-hover table-bordered">
@@ -47,6 +59,13 @@
             </tr>
         </tbody>
     </table>
-      
+    <footer class="footer">
+        Vincent550102&nbsp;&nbsp;
+        <a class="icon" target="_blank" rel="noopener" href="https://github.com/Vincent550102/snake_game">
+            <i class="fab fa-github"></i>
+        </a>
+        &nbsp;&nbsp; repo
+    </footer>
+
 </body>
 </html>
