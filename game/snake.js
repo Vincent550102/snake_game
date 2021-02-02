@@ -1,5 +1,5 @@
 import {get_direction} from "./listener.js"
-export const SNAKE_SPEED = 8
+export const SNAKE_SPEED = 10
 let new_part = 0
 const snake_body = [{x:16,y:16}]
 
