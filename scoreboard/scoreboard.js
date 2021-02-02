@@ -13,7 +13,7 @@ $(document).ready(function () {
             // uid score time
             var $urow = $("<tr></tr>")
             $urow.append($('<th scope="row">' + String(cnt) + '</th>'))
-            const keys = ['uid','time','score'];
+            const keys = ['uid','score','time'];
             for(var i = 0; i<3; i++) {
                 $urow.append($('<td>'+element[keys[i]]+'</td>'))
             }
