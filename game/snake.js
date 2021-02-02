@@ -1,7 +1,7 @@
 import {get_direction} from "./listener.js"
 export const SNAKE_SPEED = 8
 let new_part = 0
-const snake_body = [{x:11,y:11}]
+const snake_body = [{x:16,y:16}]
 
 export function update() {
     add_part()
