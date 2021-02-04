@@ -37,12 +37,10 @@ function lost_thing(){
     const data = {
         "uid":userName
     }
-
     postData(url,data)
     .then(data => {
         const udata = data
         var status_mess = "您 " + userName + " 達到分數 " + String(score) + " 所花費的時間是 " + String(time)+"\n";
-        console.log(udata)
         if(udata.already) {
             if(score>udata.score||(score==udata.score && time<udata.time)) {
                 status_mess+="恭喜您這次的成績大於歷史上的成績\n\n按下一步為您更新!";
@@ -68,10 +66,16 @@ function lost_thing(){
 }
 
 function insert_data_toDB(data){
-    const url = 'https://snake-game-backend.herokuapp.com/InsertData';
-    postData(url, data)
-    .then(data => {
-        console.log(data)
+    postData('https://snake-game-backend.herokuapp.com/catcatGettok',{
+        'uid':userName
+    })
+    .then(access=>{
+        const url = 'https://snake-game-backend.herokuapp.com/InsertData';
+        postData(url, data, access.access_token)
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => console.error(error))
     })
     .catch(error => console.error(error))
 }

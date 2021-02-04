@@ -1,4 +1,4 @@
-export function postData(url, data) {
+export function postData(url, data, tok) {
     // Default options are marked with *
     return fetch(url, {
         body: JSON.stringify(data), // must match 'Content-Type' header
@@ -6,7 +6,8 @@ export function postData(url, data) {
         credentials: 'same-origin', // include, same-origin, *omit
         headers: {
             'user-agent': 'Example',
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'Authorization': 'Bearer '+tok
         },
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, cors, *same-origin
